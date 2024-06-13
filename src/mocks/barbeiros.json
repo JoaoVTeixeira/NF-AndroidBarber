@@ -1,0 +1,101 @@
+[
+    {
+        "id": 1,
+        "nome": "Carlos Silva",
+        "idade": 35,
+        "experiencia": "10 anos",
+        "especialidades": ["Corte de cabelo", "Barba"],
+        "barbearia_id": "66518759c56f751388b98b47",
+        "images": 
+            "https://www.guiadasemana.com.br/contentFiles/image/opt_w1280h960/2017/02/FEA/49393_shutterstock-barbearia.jpg"
+            
+    },
+    {
+        "id": 2,
+        "nome": "Marcos Lima",
+        "idade": 32,
+        "experiencia": "8 anos",
+        "especialidades": ["Corte de cabelo", "Barba", "Massagem"],
+        "barbearia_id": "66518759c56f751388b98b47",
+        "images": 
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR5bqNCG-3-8xvcsE9-nT2kwwGGuUQrJx8CsNmPbIDH1Kd604flIJXrHYA0RdCqDjlXrg&usqp=CAU"
+            
+    },
+    {
+        "id": 3,
+        "nome": "Ana Pereira",
+        "idade": 29,
+        "experiencia": "7 anos",
+        "especialidades": ["Barba", "Tratamento capilar"],
+        "barbearia_id": "66518759c56f751388b98b47",
+        "images": 
+            "https://media.istockphoto.com/id/1271712634/pt/foto/young-woman-looking-for-changes-trying-new-hairstyle-at-beauty-salon.jpg?s=612x612&w=0&k=20&c=DjIZDLHtkxXxHLDzTmZse_PBuwlZweULeCjYQWIc1zo="
+            
+    },
+    {
+        "id": 4,
+        "nome": "Pedro Santos",
+        "idade": 28,
+        "experiencia": "6 anos",
+        "especialidades": ["Barba", "Design de sobrancelhas"],
+        "barbearia_id": "66518759c56f751388b98b48",
+        "images": 
+            "https://conteudo.imguol.com.br/c/esporte/3d/2022/01/06/o-barbeiro-tiago-faria-cortando-o-cabelo-de-ronaldo-fenomeno-em-madri-esp-1641506801694_v2_900x506.jpg"
+            
+    },
+    {
+        "id": 5,
+        "nome": "Luiz Oliveira",
+        "idade": 30,
+        "experiencia": "9 anos",
+        "especialidades": ["Corte de cabelo", "Barba"],
+        "barbearia_id": "66518759c56f751388b98b48",
+        "images": 
+            "https://www.elhombre.com.br/wp-content/uploads/2021/12/Depositphotos_237059912_S.jpg"
+            
+    },
+    {
+        "id": 6,
+        "nome": "Roberto Souza",
+        "idade": 33,
+        "experiencia": "10 anos",
+        "especialidades": ["Corte de cabelo", "Barba"],
+        "barbearia_id": "66518759c56f751388b98b48",
+        "images": 
+            "https://blog.inventa.shop/hubfs/Imported_Blog_Media/slogan-para-barbearia-2.jpg"
+            
+    },
+    {
+        "id": 7,
+        "nome": "João Oliveira",
+        "idade": 40,
+        "experiencia": "15 anos",
+        "especialidades": ["Corte de cabelo", "Tratamento capilar"],
+        "barbearia_id": "66518759c56f751388b98b49",
+        "images": 
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeaFKo1sLNTXL1kCbiE8GXhElEHXjQDHkidw&usqp=CAU"
+            
+    },
+    {
+        "id": 8,
+        "nome": "Rafael Mendes",
+        "idade": 36,
+        "experiencia": "12 anos",
+        "especialidades": ["Corte de cabelo", "Barba"],
+        "barbearia_id": "66518759c56f751388b98b49",
+        "images": 
+            "https://midias.correiobraziliense.com.br/_midias/jpg/2024/02/02/1200x801/1_1-34767588.jpeg"
+            
+    },
+    {
+        "id": 9,
+        "nome": "Thiago Silva",
+        "idade": 31,
+        "experiencia": "10 anos",
+        "especialidades": ["Barba", "Tratamento capilar"],
+        "barbearia_id": "66518759c56f751388b98b49",
+        "images": 
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGuatqtSZmOv6IThYsjjUm3JkPVdQU23z35A&usqp=CAU"
+            
+    }
+]
