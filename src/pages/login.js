@@ -20,7 +20,7 @@ export default function Index({ setIsAuthenticated }) {
   };
 
   const handleRegister = () => {
-    // Add navigation to register screen here
+     
     console.log('Navigate to Register Screen');
   };
 

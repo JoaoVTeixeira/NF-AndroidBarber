@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Dimensions, Image } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { useNavigation } from '@react-navigation/native';
+import { StarRatingDisplay } from 'react-native-star-rating-widget';
 
  import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -44,7 +45,7 @@ export default function Barbeiros({ route }) {
   const calculateAverage = (avaliacoes) => {
     if (avaliacoes.length === 0) return 0;
     const sum = avaliacoes.reduce((acc, nota) => acc + nota, 0);
-    return (sum / avaliacoes.length).toFixed(2); // Keep two decimal places
+    return (sum / avaliacoes.length).toFixed(2);
   };
 
 
@@ -56,7 +57,7 @@ export default function Barbeiros({ route }) {
         <Text style={styles.text}>Idade: {item.idade}</Text>
         <Text style={styles.text}>Experiência: {item.experiencia}</Text>
         <Text style={styles.text}>Especialidades: {item.especialidades.join(', ')}</Text>
-        <Text style={styles.text}>Avaliação: {calculateAverage(item.avaliacoes)}</Text>
+        <Text style={styles.text}>Avaliação: {<StarRatingDisplay rating={calculateAverage(item.avaliacoes)} starSize={13}/>}</Text>
 
         {/* <Text style={styles.text}>Avaliação: {item.avaliacao.nota} - {item.avaliacao.comentario}</Text> */}
       </View>

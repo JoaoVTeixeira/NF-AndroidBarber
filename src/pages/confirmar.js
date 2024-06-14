@@ -9,16 +9,21 @@ const Confirmar = () => {
   const navigation = useNavigation();
 
   const { barbeariaId, barbeariaNome, barbeiroNome , barbeiroId , data, hora } = route.params;
-
+  function formatDateToMMDDYYYY(dateStr) {
+    const [day, month, year] = dateStr.split('/');
+    return `${month}/${day}/${year}`;
+  }
   console.log("Test");
-  console.log(barbeariaId, barbeiroNome, barbeariaNome, data, hora);
+  console.log(barbeariaId, barbeiroNome, barbeariaNome, formatDateToMMDDYYYY(data), hora);
+
+  
 
   const reserva = {
     unidade: barbeariaId,
     unidadeNome: barbeariaNome,
     barbeiroNome: barbeiroNome,
     barbeiro: barbeiroId,
-    data: data,
+    data: formatDateToMMDDYYYY(data),
     horas: hora,
     cliente: 1,
     status: "R"

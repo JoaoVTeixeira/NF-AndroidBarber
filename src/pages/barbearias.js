@@ -51,7 +51,7 @@ export default function Barbearias() {
       email={item.email}
       site={item.site}
       horario_funcionamento={item.horario_funcionamento}
-      image={item.images} // Assuming your API returns an image URL
+      image={item.images} 
     />
   );
 
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
-    elevation: 3, // For Android shadow
+    elevation: 3, 
   },
   itemContent: {
     flexDirection: 'row',
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 120,
-    height: '100%', // Make the image take the full height of the item
+    height: '100%', 
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
   },

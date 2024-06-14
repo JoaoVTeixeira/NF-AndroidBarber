@@ -2,10 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, View, Text, StyleSheet, TouchableOpacity, SafeAreaView, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import reservasService from '../services/reservasService';
+import StarRating from 'react-native-star-rating-widget';
+import barbeirosService from '../services/barbeirosService';
 
 export default function Agendamentos() {
     const navigation = useNavigation();
     const [agendamentos, setAgendamentos] = useState([]);
+    const [confirmingAgendamento, setConfirming] = useState(false)
+    const [rating, setRating] = useState(0);
+
 
     useEffect(() => {
         async function fetchAgendamentos() {
@@ -23,14 +28,23 @@ export default function Agendamentos() {
     const confirmReservation = (id) => {
         Alert.alert('Confirmação', 'Deseja confirmar esta reserva?', [
             { text: 'Cancelar', style: 'cancel' },
-            { text: 'Confirmar', onPress: () => console.log(`Reserva ${id} confirmada!`) },
+            { text: 'Confirmar', onPress: () => confirmaReserva(id) },
         ]);
     };
+
+    const confirmaReserva = (id) => {
+        setConfirming(true);
+        reservasService.cancelaReserva(id)
+    }
+
+    const EndConfirming = () => {
+        setConfirming(false);
+    }
 
     const cancelReservation = (id) => {
         Alert.alert('Cancelamento', 'Deseja cancelar esta reserva?', [
             { text: 'Não', style: 'cancel' },
-            { text: 'Sim', onPress: () => console.log(`Reserva ${id} cancelada!`) },
+            { text: 'Sim', onPress: () => reservasService.cancelaReserva(id) },
         ]);
     };
 
@@ -44,16 +58,9 @@ export default function Agendamentos() {
                     <Text style={styles.text}>{horario_funcionamento}</Text>
                 </View>
                 <View style={styles.buttonContainer}>
-                    {
-                        status == "R" ?
-                            <TouchableOpacity style={styles.confirmButton} onPress={() => confirmReservation(id)}>
-                                <Text style={styles.btnText}>Confirmar Presença</Text>
-                            </TouchableOpacity>
-                            :
-                            <TouchableOpacity style={styles.confirmButton} onPress={() => confirmReservation(id)}>
-                                <Text style={styles.btnText}>Confirmar Presença</Text>
-                            </TouchableOpacity>
-                    }
+                    <TouchableOpacity style={styles.confirmButton} onPress={() => confirmReservation(id)}>
+                        <Text style={styles.btnText}>Confirmar Presença</Text>
+                    </TouchableOpacity>
                     <TouchableOpacity style={styles.cancelButton} onPress={() => cancelReservation(id)}>
                         <Text style={styles.btnText}>Cancelar</Text>
                     </TouchableOpacity>
@@ -75,11 +82,31 @@ export default function Agendamentos() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <FlatList
-                data={agendamentos}
-                renderItem={renderItem}
-                keyExtractor={item => item._id.toString()}
-            />
+            {confirmingAgendamento ? (
+                <View style={styles.item}>
+                    <Text style={styles.title2}>Como você avalia sua reserva?</Text>
+                    <StarRating
+                        rating={rating}
+                        onChange={setRating}
+                        starSize={20}
+                        style={styles.stars}
+                    />
+                    <View style={styles.buttonContainer}>
+                        <TouchableOpacity onPress={EndConfirming} style={styles.confirmButton}>
+                            <Text style={styles.buttonText}>Confirmar</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={EndConfirming} style={styles.cancelButton}>
+                            <Text style={styles.buttonText}>Cancelar</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            ) : (
+                <FlatList
+                    data={agendamentos}
+                    renderItem={renderItem}
+                    keyExtractor={item => item._id.toString()}
+                />
+            )}
         </SafeAreaView>
     );
 }
@@ -114,6 +141,15 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#FFFFFF',
         marginBottom: 5,
+        
+    },
+    title2: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: '#FFFFFF',
+        marginBottom: 5,
+        paddingTop: 5,
+        paddingLeft: 15
     },
     subTitle: {
         fontSize: 16,
@@ -150,5 +186,36 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         fontSize: 16,
         fontWeight: '600',
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: '100%',
+        padding: 10,
+    },
+    confirmButton: {
+        backgroundColor: '#28a745',
+        borderRadius: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        marginHorizontal: 5,
+    },
+    cancelButton: {
+        backgroundColor: '#dc3545',
+        borderRadius: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        marginHorizontal: 5,
+    },
+    stars: {
+        marginTop: 24,
+        marginBottom: 24,
+        marginLeft: 'auto',
+        marginRight: 'auto'
+    },
+
+    buttonText: {
+        color: '#ffffff',
+        textAlign: 'center',
     },
 });
