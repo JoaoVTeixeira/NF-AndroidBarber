@@ -5,7 +5,7 @@ var unidadesService = {
     getUnidades: async()=>{
 
         try {
-            var unidadesApi = axios.get(`http://10.0.2.2:5000/api/unidades/`, {
+            var unidadesApi = axios.get(`https://nf-android-backend-grzvk96jl-joaos-projects-d68ebd5d.vercel.app/api/unidades/`, {
                 maxRedirects: 5, // Set the maximum number of redirects to follow
               });
             return await unidadesApi;
